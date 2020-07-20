@@ -1,7 +1,7 @@
 import React from "react";
 
 //Import method
-import millisToMinutesAndSeconds from "./MilliToMinute";
+import millisToMinutesAndSeconds from "./helper/MilliToMinute";
 
 //Import CountryFlag Generator
 import ReactCountryFlag from "react-country-flag";

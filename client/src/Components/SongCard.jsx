@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 //Import method
-import millisToMinutesAndSeconds from "./MilliToMinute";
+import millisToMinutesAndSeconds from "./helper/MilliToMinute";
 
 //Material-ui Components
 import Card from "@material-ui/core/Card";

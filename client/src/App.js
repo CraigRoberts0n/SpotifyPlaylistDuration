@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 //Import Components
-import Header from "./Header";
-import Sidebar from "./Sidebar";
-import AppActions from "./AppActions";
-import SongCards from "./SongCards";
-import hash from "./hash";
+import Header from "./Components/Header";
+import Sidebar from "./Components/Sidebar";
+import AppActions from "./Components/AppActions";
+import SongCards from "./Components/SongCards";
+import hash from "./Components/helper/hash";
 
 //Material-ui Components
 import Alert from "@material-ui/lab/Alert";
