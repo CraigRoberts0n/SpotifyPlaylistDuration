@@ -18,9 +18,9 @@ const Header = ({ setDrawerOpen, checkedSongs, userID, flag }) => {
   //initialize styles
   const useStyles = makeStyles((theme) => ({
     toolbar: {
-      minHeight: 70,
+      minHeight: "7vh",
       alignItems: "flex-start",
-      paddingTop: theme.spacing(1),
+      paddingTop: "1vh",
     },
     title: {
       flexGrow: 1,
@@ -56,8 +56,7 @@ const Header = ({ setDrawerOpen, checkedSongs, userID, flag }) => {
 
         <Typography className={classes.title} variant="h5">
           {/* {Display Username and Flag} */}
-          Spotify - {userID}{" "}
-          {flag && <ReactCountryFlag countryCode={flag} svg />}
+          {userID} {flag && <ReactCountryFlag countryCode={flag} svg />}
         </Typography>
         <Typography className={classes.totalDuration} variant="h4">
           {/* {Display the Total Playlist Duartion} */}

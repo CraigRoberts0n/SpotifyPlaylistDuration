@@ -7,27 +7,14 @@ import axios from "axios";
 import Header from "./Components/Header";
 import Sidebar from "./Components/Sidebar";
 import AppActions from "./Components/AppActions";
+import Landing from "./Components/Landing";
 import SongCards from "./Components/SongCards";
 import hash from "./Components/helper/hash";
 
+import "./App.css";
+
 //Material-ui Components
 import Alert from "@material-ui/lab/Alert";
-import Button from "@material-ui/core/Button";
-
-//Endpoint to authorize user
-const authEndpoint = "https://accounts.spotify.com/authorize";
-
-//client ID, redirect URI and desired scopes
-const clientId = "f5200adfddfd40869e0cc7da942bb413";
-const Address = window.location.href.split("/")
-const redirectUri = `${Address[0]}//${Address[2]}/callback`;
-const scopes = [
-  "user-library-read",
-  "playlist-modify-public",
-  "playlist-modify-private",
-  "user-read-private",
-  "user-read-email",
-];
 
 function App() {
   const [token, setToken] = useState("");
@@ -55,7 +42,6 @@ function App() {
   //Retrieves the users Profile data and library
   useEffect(() => {
     if (token) {
-      // window.location.hash = '';
       getUserDetails();
       getLibrary();
     }
@@ -154,24 +140,8 @@ function App() {
         searchResults={searchResults}
       />
 
-      {/* {Display Button to Authorize Spotify} */}
-      {!token && (
-        <Button
-          href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
-            "%20"
-          )}&response_type=token&show_dialog=true`}
-          variant="contained"
-          color="primary"
-          style={{
-            marginTop: 30,
-            display: "flex",
-            justifyContent: "center",
-            height: 50,
-          }}
-        >
-          Click to Login To Spotify
-        </Button>
-      )}
+      {/* {Display Landing to Authorize Spotify} */}
+      {!token && <Landing />}
     </div>
   );
 }

@@ -1,0 +1,24 @@
+.landing {
+  background-size: 100vw;
+}
+
+.landingInfo {
+  padding: 10vh 5vw 10vh 30vw;
+}
+
+.landingTransparent {
+  padding: 5vh 5vw 5vh 5vw;
+}
+
+@media only screen and (max-width: 768px) {
+  .landing {
+    background-size: 275vw;
+  }
+  .landingInfo {
+    padding: 5vh 5vw 5vh 5vw;
+  }
+
+  .landingTransparent {
+    padding: 5vh 4vw 4vh 4vw;
+  }
+}
