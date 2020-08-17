@@ -31,13 +31,24 @@ function App() {
   });
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  //Sets the access token to state
+  //Sets the access token and Local Storage to state
   useEffect(() => {
     let _token = hash.access_token;
     if (_token) {
       setToken(_token);
+
+      //Looks at Local Storage
+      let localStore = JSON.parse(localStorage.getItem('checkedLocalStore'))
+      if(localStore) {
+        setCheckedSongs(localStore) //If Local Storage Available set State
+      }
     }
   }, []);
+
+  //Update Local Storage when checked songs changes
+  useEffect(() => {
+    localStorage.setItem('checkedLocalStore', JSON.stringify(checkedSongs))
+  }, [checkedSongs])
 
   //Retrieves the users Profile data and library
   useEffect(() => {
