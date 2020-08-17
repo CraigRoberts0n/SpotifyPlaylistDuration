@@ -15,6 +15,7 @@ import Avatar from "@material-ui/core/Avatar";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 import Link from "@material-ui/core/Link";
+import Button from "@material-ui/core/Button";
 
 const Sidebar = ({
   drawerOpen,
@@ -34,6 +35,12 @@ const Sidebar = ({
     setCheckedSongs(checkedSongsCopy); //Set CheckedSong State
   };
 
+  const deleteAllItems = () => {
+    let checkedSongsCopy = [...checkedSongs]; //Copy Array
+    checkedSongsCopy.length = 0;
+    setCheckedSongs(checkedSongsCopy);
+  }
+
   return (
     <Drawer
       anchor={"left"}
@@ -46,7 +53,7 @@ const Sidebar = ({
       <Divider />
       <List style={{ minWidth: "auto", marginLeft: 5 }} subheader={<li />}>
         {checkedSongs.length > 0 && (
-          <ListSubheader>{"Click Song to Delete"}</ListSubheader>
+          <ListSubheader>{"Click song to delete"}</ListSubheader>
         )}
         {checkedSongs.map((song) => (
           // List Item Container
@@ -59,7 +66,7 @@ const Sidebar = ({
             {/* {Song Avatar} */}
             <ListItemAvatar style={{ pointerEvents: "none" }}>
               <Avatar
-                alt="Remy Sharp"
+                alt={song.songName}
                 src={song.albumCover}
                 style={{ pointerEvents: "none" }}
               />
@@ -79,10 +86,25 @@ const Sidebar = ({
         {/* {Display Default Text} */}
         {checkedSongs.length === 0 && (
           <ListItem>
-            <ListItemText primary="SELECT SOME SONGS" />
+            <ListItemText primary="Select Songs to Begin" />
           </ListItem>
         )}
         <Divider />
+        {checkedSongs.length !== 0 && (
+          <>
+          <ListItem>
+            <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => {
+                    deleteAllItems();
+                  }}
+                >
+                  Remove all Songs
+              </Button>
+          </ListItem>
+          <Divider />
+          </>)}
         {/* {GitHub Profile Link} */}
         <ListItem>
           <Link href="https://github.com/CraigRoberts0n">
