@@ -4,17 +4,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 //Material-ui Components
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
-
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-
-import Alert from "@material-ui/lab/Alert";
+import { Button, TextField, FormControlLabel, Alert, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 
 const PlaylistDialog = ({
   checkedSongs,
@@ -105,9 +95,9 @@ const PlaylistDialog = ({
   };
 
   return (
-    <div style={{ marginBottom: 6 }}>
+    <div>
       {/* {Button to Open modal} */}
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button variant="outlined" color="primary" onClick={handleClickOpen} style={{height: "40px"}}>
         Save to Playlist
       </Button>
 

@@ -4,27 +4,22 @@ import React, { useState, useEffect } from "react";
 import millisToMinutesAndSeconds from "./helper/MilliToMinute";
 
 //Material-ui Components
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import CardMedia from "@material-ui/core/CardMedia";
-
-import Checkbox from "@material-ui/core/Checkbox";
-
-import CardActionArea from "@material-ui/core/CardActionArea";
+import { Card, CardActionArea, Checkbox, CardMedia, Grid2, Typography, CardContent, CardHeader } from "@mui/material";
+import ReactCountryFlag from "react-country-flag";
 
 const SongCard = ({
   identifier,
   uri,
   song,
   artist,
+  nationality,
   duration,
   albumCover,
   checkedSongs,
   setCheckedSongs,
 }) => {
   const [checked, setChecked] = useState(false);
+  const flag = nationality && nationality !== "-" ? nationality : null;
 
   //Check if Card Song is in CheckedSongs array, if so Check Card, othewise Uncheck Card
   useEffect(() => {
@@ -63,33 +58,35 @@ const SongCard = ({
   };
 
   return (
-    <Grid
-      item
+    <Grid2
       component={Card}
-      xs={5}
-      md={2}
+      size={2}
       key={identifier}
       variant="outlined"
-      style={{ margin: "0 1%", marginBottom: "1%" }}
+      style={{minWidth: "250px"}}
     >
-      <CardActionArea onClick={() => handleChange(!checked)}>
-        <Checkbox
-          checked={checked}
-          onChange={() => handleChange(!checked)}
-          inputProps={{ "aria-label": "primary checkbox" }}
-        />
-        <CardMedia component="img" image={albumCover} />
-        <CardContent>
-          <Typography variant="h6">{song}</Typography>
+      <CardActionArea onClick={() => handleChange(!checked)} style={{height: "100%"}}>
+        <CardHeader style={{ padding: ".5rem"}} avatar={
+          <Checkbox
+            checked={checked}
+            onChange={() => handleChange(!checked)}
+            inputProps={{ "aria-label": "primary checkbox" }}
+            style={{padding: 0}}
+          />
+        }>          
+        </CardHeader>
+        <CardMedia component="img" image={albumCover} loading="lazy"/>
+        <CardContent style={{display: "flex", flexDirection: "column", height: "100px"}}>
+          <Typography variant="h6" style={{display: 'inline-block', width: "calc(200px-16px)", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis"}}>{song}</Typography>
           <Typography variant="body2" component="p">
-            {artist}
+            {artist} {flag && <ReactCountryFlag countryCode={flag} svg />}
           </Typography>
-          <Typography variant="body2" component="p">
-            Duration: {millisToMinutesAndSeconds(duration)}
+          <Typography variant="body2" component="p" style={{marginTop: "auto"}}>
+            Duration: {millisToMinutesAndSeconds(duration)}m
           </Typography>
         </CardContent>
       </CardActionArea>
-    </Grid>
+    </Grid2>
   );
 };
 

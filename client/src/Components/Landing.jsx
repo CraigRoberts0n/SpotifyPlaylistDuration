@@ -1,8 +1,7 @@
 import React from "react";
 
 //Material-ui Components
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+import { Typography, Button } from "@mui/material";
 
 //Endpoint to authorize user
 const authEndpoint = "https://accounts.spotify.com/authorize";

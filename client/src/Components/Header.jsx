@@ -7,58 +7,35 @@ import millisToMinutesAndSeconds from "./helper/MilliToMinute";
 import ReactCountryFlag from "react-country-flag";
 
 //Material-ui Components
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import MenuIcon from "@material-ui/icons/Menu";
-import IconButton from "@material-ui/core/IconButton";
+import { IconButton, Typography, Toolbar, AppBar } from "@mui/material";
+import { MenuOutlined } from "@mui/icons-material";
 
 const Header = ({ setDrawerOpen, checkedSongs, userID, flag }) => {
   //initialize styles
-  const useStyles = makeStyles((theme) => ({
-    toolbar: {
-      minHeight: "7vh",
-      alignItems: "flex-start",
-      paddingTop: "1vh",
-    },
-    title: {
-      flexGrow: 1,
-      alignSelf: "flex-start",
-    },
-    totalDuration: {
-      justifyContent: "center",
-      fontSize: "1.7rem",
-      [theme.breakpoints.down("xs")]: {
-        fontSize: "1.5rem",
-      },
-    },
-    appBar: {
-      backgroundColor: "#1DB954",
-    },
-  }));
-
-  const classes = useStyles();
+  const totalDurationStyles = {
+    justifyContent: "center",
+    fontSize: "1.7rem",
+    marginLeft: "auto"
+  }
 
   return (
     <AppBar position="sticky" style={{ backgroundColor: "#1DB954" }}>
-      <Toolbar className={classes.toolbar}>
+      <Toolbar>
         {/* {Hamburger Button} */}
         <IconButton
           edge="start"
-          className={classes.menuButton}
           color="inherit"
           aria-label="open drawer"
           onClick={() => setDrawerOpen(true)}
         >
-          <MenuIcon />
+          <MenuOutlined />
         </IconButton>
 
-        <Typography className={classes.title} variant="h5">
+        <Typography variant="h5">
           {/* {Display Username and Flag} */}
           {userID} {flag && <ReactCountryFlag countryCode={flag} svg />}
         </Typography>
-        <Typography className={classes.totalDuration} variant="h4">
+        <Typography sx={totalDurationStyles} variant="h4">
           {/* {Display the Total Playlist Duartion} */}
           {checkedSongs.length > 0 &&
             "Duration: " +

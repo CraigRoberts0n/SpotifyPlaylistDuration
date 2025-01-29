@@ -1,21 +1,11 @@
 import React from "react";
 
 //Material-ui Components
-import IconButton from "@material-ui/core/IconButton";
-
-import Drawer from "@material-ui/core/Drawer";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import Divider from "@material-ui/core/Divider";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListSubheader from "@material-ui/core/ListSubheader";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
-import DeleteIcon from "@material-ui/icons/Delete";
-
-import Link from "@material-ui/core/Link";
-import Button from "@material-ui/core/Button";
+import { 
+  List, ListItem, ListSubheader, ListItemText, ListItemAvatar, 
+  Avatar, Button, Link, Divider, Drawer, IconButton 
+} from "@mui/material";
+import { DeleteOutline, ChevronLeftOutlined } from "@mui/icons-material";
 
 const Sidebar = ({
   drawerOpen,
@@ -48,7 +38,7 @@ const Sidebar = ({
       onClose={() => setDrawerOpen(false)}
     >
       <IconButton onClick={() => setDrawerOpen(false)}>
-        <ChevronLeftIcon />
+        <ChevronLeftOutlined />
       </IconButton>
       <Divider />
       <List style={{ minWidth: "auto", marginLeft: 5 }} subheader={<li />}>
@@ -79,7 +69,7 @@ const Sidebar = ({
             />
             {/* {Delete Icon} */}
             <IconButton style={{ pointerEvents: "none" }}>
-              <DeleteIcon style={{ pointerEvents: "none" }} />
+              <DeleteOutline style={{ pointerEvents: "none" }} />
             </IconButton>
           </ListItem>
         ))}
