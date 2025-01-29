@@ -8,8 +8,7 @@ const authEndpoint = "https://accounts.spotify.com/authorize";
 
 //client ID, redirect URI and desired scopes
 const clientId = "f5200adfddfd40869e0cc7da942bb413";
-const Address = window.location.href.split("/")
-const redirectUri = `${Address[0]}//${Address[2]}/callback`;
+const redirectUri = window.location.href + 'callback';
 const scopes = [
   "user-library-read",
   "playlist-modify-public",
