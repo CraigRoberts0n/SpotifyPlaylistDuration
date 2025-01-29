@@ -135,7 +135,7 @@ function App() {
     const artists = userLibrary.map(song => song.track.artists[0].name);
     if(artists.length === 0) return;
       axios
-      .post("/artists/nationality", artists)
+      .post("https://crobertson.dev/playlistduration/artists/nationality", artists)
       .then(({ data }) => {
         setArtistNationality(prev => ({...prev, ...data}))
       })
