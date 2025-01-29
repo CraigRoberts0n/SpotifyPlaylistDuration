@@ -60,7 +60,7 @@ const SongCard = ({
   return (
     <Grid2
       component={Card}
-      size={2}
+      size={'grow'}
       key={identifier}
       variant="outlined"
       style={{minWidth: "250px"}}

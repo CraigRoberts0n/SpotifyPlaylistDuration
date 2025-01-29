@@ -19,7 +19,7 @@ const SongCards = ({
 }) => {  
   return (
     <div style={{display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center"}}>
-      <Grid2 container spacing={0} justify="center" style={{gap: "1rem", justifyContent: "center"}}>
+      <Grid2 container spacing={0} justify="center" style={{gap: "1rem", justifyContent: "center", padding: "0 1rem"}}>
         {/* {Display Song Cards for Search} */}
         {searchResults.length > 0
           ? searchResults.map((song) => (
